@@ -1,0 +1,233 @@
+$phone-small: 480px;
+$width-mid:   747px;
+$width-normal:   991px;
+$width-large: 1200px;
+$height-max: 1000px;
+$width-fullwidth: 1080px;
+
+
+
+.home .hello h1.main-title{
+  font-size: 6.83em;
+  @media screen and (max-width: $width-large) {font-size: 6em; }
+  @media screen and (max-width: $width-fullwidth) {font-size: 5.6em; }
+  @media screen and (max-width: $width-normal) {font-size: 5em; }
+  @media screen and (max-width: 800px) {font-size: 3.9em; }
+  @media screen and (max-width: 600px) {font-size: 3em; }
+  @media screen and (max-width: 400px) {font-size: 2.5em; }
+
+}
+.home .hello h2{
+  //font-size: 1.4em;
+  @media screen and (max-width: $width-normal) {font-size: 2.2em; }
+  @media screen and (max-width: 800px) {font-size: 2em; }
+  @media screen and (max-width: 700px) {font-size: 1.8em; }
+  @media screen and (max-width: 600px) {font-size: 1.5em; }
+  @media screen and (max-width: 400px) {font-size: 1.4em; }
+
+}
+
+.home .hello{
+  @media screen and (max-width: $width-large) {
+    height: auto;
+    top: 30%;
+    padding-top: 3.5em;
+    padding-bottom: 2em;
+   }
+}
+
+.md-device-wrapper{
+  @media screen and (max-width: 750px) { margin-top: 2em; transform: scale(0.6) translateX(-50%) translateY(10%); }
+  @media screen and (max-width: 650px) { margin-top: 2em; transform: scale(0.5) translateX(-50%) translateY(10%); }
+  @media screen and (max-width: 550px) { margin-top: 2em; transform: scale(0.35) translateX(-50%) translateY(10%); }
+
+}
+
+
+.menu .icon-list{
+  @media screen and (max-width: 500px){
+    width: 80% !important;
+  }
+}
+
+
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+
+
+
+}
+
+// WIDTH MEDIA QUERIES
+
+@media screen and (max-width: $phone-small){
+  .brandandlogo figure img{
+    display: block;
+    margin: 0 auto;
+  }
+
+
+}
+
+@media screen and (max-width: $width-large){
+  .md-slider > nav{
+    position: relative;
+    right: 0;
+    top: 0;
+  }
+
+}
+
+@media screen and (max-width: $width-normal){
+
+  .menu-wrap{
+    width: 100%;
+    height: 100%;
+    font-size: 1.15em;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  .menu{
+    padding: 0;
+    margin: 0;
+    font-size: 2em;
+
+    .icon-list{
+      width: 60%;
+      left: 0;
+      right: 0;
+      margin-left: 25%;
+      margin-top: 6em;
+    }
+  }
+
+  #fullpage .section{
+    overflow: hidden;
+
+  }
+
+  .brandandlogo figure img{
+    display: block;
+    margin: 0 auto;
+  }
+
+  .navs{
+    margin-top: 1em;
+  }
+
+  .hamburglar{
+    margin: 0;
+  }
+
+  .home{
+    .allcenter{
+      padding-top: 2.5em;
+    }
+  }
+
+
+}
+
+@media screen and (max-width: $width-mid){
+
+
+}
+
+@media screen and (max-width: 624px){
+
+
+
+
+}
+
+@media screen and (max-width: 622px){
+
+
+}
+
+@media screen and (max-width: 460px){
+
+
+}
+
+//HEIGHT MEDIA QUERIES
+
+@media screen and (min-height: $height-max){
+
+  .md-slider>nav{
+    right: 0;
+  }
+
+
+}
+
+@media screen and (max-width: 500px) and (max-height: 800px){
+
+  #fullpage .section{
+    overflow: hidden;
+    min-height: 100% !important;
+  }
+
+  #fullpage .contact{
+    min-height: 700px !important;
+  }
+
+  #fullpage .app{
+    min-height: 700px !important;
+  }
+
+  #fullpage .what{
+    min-height: 900px !important;
+  }
+
+
+
+
+.home .allcenter{
+  padding: 50% 0;
+}
+  .allcenter{
+    position: relative;
+    padding: 1.5em 0 1em 0;
+  }
+
+}
+
+
+
+
+@media screen and (max-width: 1080px) {
+
+  .what .explain{
+    height: auto;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+
+  .app .app-content{
+    height: auto;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+
+  .contact .contact-content{
+    height: auto;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+
+
+
+}
+
+@media screen and (max-height: 700px) {
+
+
+
+
+
+}

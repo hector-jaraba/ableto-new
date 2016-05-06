@@ -1,0 +1,63 @@
+///////      FONTS     ///////
+
+@import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,300);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+
+@font-face {
+  font-family: 'Manifesto';
+  src: url('font/MANIFESTO.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+$title-font: 'Arial Rounded';
+@font-face {
+  font-family: $title-font;
+  src: url('assets/fonts/Arial-Rounded-MT-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+
+
+///////      COLORS     ///////
+
+$color-oscure:      #1d252d;
+$color-blue:        #00968f;
+$color-green:       #4fa685;
+$color-bar-header:  #373936;
+$color-white:       #ffffff;
+$color-main-header: #fbfbfb;
+$color-font-header: #eeeeee;
+$color-link:        #e9a26a;
+$color-black-font:  #313131;
+$color-body:        #f6f6f6;
+$color-product:     #f8ffff;
+$color-boton:       #e9a26a;
+$color-boton-font:  #f5f5f5;
+$color-footer:      #373936;
+$color-credits:     #2c2e2c;
+$color-placeholder: #2c333a;
+$color-outer-black: #404040;
+
+///////      MIXINS     ///////
+
+@mixin ableto-bg-color() {
+  background: rgba(0,150,143,1);/* Old Browsers */
+  background: -moz-linear-gradient(left, rgba(0,150,143,1) 0%, rgba(79,166,133,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,150,143,1)), color-stop(100%, rgba(79,166,133,1)));/* Chrome, Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(0,150,143,1) 0%, rgba(79,166,133,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(0,150,143,1) 0%, rgba(79,166,133,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(0,150,143,1) 0%, rgba(79,166,133,1) 100%); /* IE 10+ */
+  background: linear-gradient(to right, rgba(0,150,143,1) 0%, rgba(79,166,133,1) 100%);/* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00968f', endColorstr='#4fa685', GradientType=1 );/* IE6-9 */
+  //background: url("assets/img/background.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin centered {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin: auto;
+}

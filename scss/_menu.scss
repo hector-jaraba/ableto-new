@@ -1,0 +1,612 @@
+/*//// MENU /////*/
+
+.mainmenu{
+
+  z-index: 2400;
+  /*height: 100%;
+  width: 100%; */
+  overflow: hidden;
+}
+
+/* hamburgueso con extra de queso */
+
+// vars
+$color: #fff;		  // icon color
+$blue: #158fef;	  // background color
+$animation: 0.6s;	// animation speed
+$scale: .9;			  // icon scale 68/68 default
+
+*, *:before, *:after {
+  box-sizing: border-box;
+ }
+
+// spacing + background-color
+
+
+.hamburglar {
+  margin-left: 50px;
+  float: left;
+  transform: scale($scale);
+  right: 1em;
+  display: block;
+  width: 68px;
+  height: 68px;
+  -webkit-touch-callout: none;
+	user-select: none;
+  z-index: 1002;
+  cursor: pointer;
+  position: relative;
+  transition: color .1s linear;
+}
+
+// transition mask
+.path-burger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 68px;
+  width: 68px;
+  // two masks because... browser support.
+  mask: url(#mask);
+  -webkit-mask-box-image: url(https://raygun.io/upload/mask.svg);
+}
+
+.animate-path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 68px;
+  height: 68px;
+}
+
+// what this does is create a small square that I then rotate behind an svg mask, giving the apparence of the line animating
+.path-rotation {
+  height: 34px;
+  width: 34px;
+  margin: 34px 34px 0 0;
+  transform: rotate(0deg);
+  transform-origin: 100% 0;
+  &:before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 34px;
+    margin: 0 4px 0 0;
+    background: $color;
+  }
+}
+
+// box rotation animation
+@keyframes rotate-out {
+  0% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-in {
+  0% {
+    transform: rotate(360deg);
+  }
+  40% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+// offset moves
+// dasharray is the dash size
+// need to be able to control dash space size.
+
+.hamburglar.is-open {
+
+  .path {
+    animation: dash-in $animation linear normal;
+    animation-fill-mode:forwards;
+  }
+  .animate-path {
+    animation: rotate-in $animation linear normal;
+    animation-fill-mode:forwards;
+  }
+}
+
+.hamburglar.is-closed {
+
+  .path {
+    animation: dash-out $animation linear normal;
+    animation-fill-mode:forwards;
+  }
+  .animate-path {
+    animation: rotate-out $animation linear normal;
+    animation-fill-mode:forwards;
+  }
+}
+
+.path {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  stroke-linejoin: round;
+}
+
+@keyframes dash-in {
+  0% {
+    stroke-dashoffset: 240;
+  }
+  40% {
+    stroke-dashoffset: 240;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes dash-out {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  40% {
+    stroke-dashoffset: 240;
+  }
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+
+
+
+// All good burgers need filling!
+
+.burger-icon {
+  position: absolute;
+  padding: 20px 16px;
+  height: 68px;
+  width: 68px;
+}
+
+.burger-container {
+  position: relative;
+  height: 28px;
+  width: 36px;
+}
+
+.burger-bun-top,
+.burger-bun-bot,
+.burger-filling {
+  position: absolute;
+  display: block;
+  height: 4px;
+  width: 36px;
+  border-radius: 2px;
+  background: $color;
+  transition: color .3s linear;
+}
+
+.burger-bun-top {
+  top: 0;
+  transform-origin: 34px 2px;
+}
+
+.burger-bun-bot {
+  bottom: 0;
+  transform-origin: 34px 2px;
+}
+//.burger-filling {
+//  @include transition(all,($animation/2.5),ease-in-//out);
+//}
+// relative parent is the button
+.burger-filling {
+  top: 12px;
+}
+
+
+
+
+
+// burger ring container
+.burger-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 68px;
+  height: 68px;
+}
+
+.svg-ring {
+  width: 68px;
+  height: 68px;
+}
+
+
+// bun animations
+.hamburglar.is-open {
+  .burger-bun-top {
+    animation: bun-top-out $animation linear normal;
+    animation-fill-mode:forwards;
+  }
+  .burger-bun-bot {
+    animation: bun-bot-out $animation linear normal;
+    animation-fill-mode:forwards;
+  }
+}
+.hamburglar.is-closed {
+  .burger-bun-top {
+    animation: bun-top-in $animation linear normal;
+    animation-fill-mode:forwards;
+  }
+  .burger-bun-bot {
+    animation: bun-bot-in $animation linear normal;
+    animation-fill-mode:forwards;
+  }
+}
+
+@keyframes bun-top-out {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0deg);
+  }
+  20% {
+    left: 0;
+    top: 0;
+    transform: rotate(15deg);
+  }
+  80% {
+    left: -5px;
+    top: 0;
+    transform: rotate(-60deg);
+  }
+  100% {
+    left: -5px;
+    top: 1px;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes bun-bot-out {
+  0% {
+    left: 0;
+    transform: rotate(0deg);
+  }
+  20% {
+    left: 0;
+    transform: rotate(-15deg);
+  }
+  80% {
+    left: -5px;
+    transform: rotate(60deg);
+  }
+  100% {
+    left: -5px;
+    transform: rotate(45deg);
+  }
+}
+
+
+@keyframes bun-top-in {
+  0% {
+    left: -5px;
+    bot: 0;
+    transform: rotate(-45deg);
+  }
+  20% {
+    left: -5px;
+    bot: 0;
+    transform: rotate(-60deg);
+  }
+  80% {
+    left: 0;
+    bot: 0;
+    transform: rotate(15deg);
+  }
+  100% {
+    left: 0;
+    bot: 1px;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bun-bot-in {
+  0% {
+    left: -5px;
+    transform: rotate(45deg);
+  }
+  20% {
+    left: -5px;
+    bot: 0;
+    transform: rotate(60deg);
+  }
+  80% {
+    left: 0;
+    bot: 0;
+    transform: rotate(-15deg);
+  }
+  100% {
+    left: 0;
+    transform: rotate(0deg);
+  }
+}
+
+
+// burger filling
+.hamburglar.is-open {
+  .burger-filling {
+    animation: burger-fill-out $animation linear normal;
+    animation-fill-mode:forwards;
+  }
+}
+
+.hamburglar.is-closed {
+  .burger-filling {
+    animation: burger-fill-in $animation linear normal;
+    animation-fill-mode:forwards;
+  }
+}
+
+@keyframes burger-fill-in {
+  0% {
+    width: 0;
+    left: 36px;
+  }
+  40% {
+    width: 0;
+    left: 40px;
+  }
+  80% {
+    width: 36px;
+    left: -6px;
+  }
+  100% {
+    width: 36px;
+    left: 0px;
+  }
+}
+
+@keyframes burger-fill-out {
+  0% {
+    width: 36px;
+    left: 0px;
+  }
+  20% {
+    width: 42px;
+    left: -6px;
+  }
+
+  40% {
+    width: 0;
+    left: 40px;
+  }
+
+  100% {
+    width: 0;
+    left: 36px;
+  }
+}
+
+
+
+
+
+.menu-wrap a {
+	color: #ffffff;
+	transition: .2s ease-out;
+}
+
+.menu-wrap a:hover,
+.menu-wrap a:focus {
+	text-decoration: underline;
+	transition: .2s ease-out;
+
+}
+
+.content-wrap {
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.content {
+	position: relative;
+}
+
+.content::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0s 0.3s;
+	transition: opacity 0.3s, transform 0s 0.3s;
+	-webkit-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0);
+}
+
+/* Menu Button */
+.menu-button {
+	position: fixed;
+	z-index: 1000;
+	margin: 1em;
+	padding: 0;
+	width: 2.5em;
+	height: 2.25em;
+	border: none;
+	text-indent: 2.5em;
+	font-size: 1.5em;
+	color: transparent;
+	background: transparent;
+}
+
+.menu-button::before {
+	position: absolute;
+	top: 0.5em;
+	right: 0.5em;
+	bottom: 0.5em;
+	left: 0.5em;
+	background: linear-gradient(#373a47 20%, transparent 20%, transparent 40%, #373a47 40%, #373a47 60%, transparent 60%, transparent 80%, #373a47 80%);
+	content: '';
+}
+
+.menu-button:hover {
+	opacity: 0.6;
+}
+
+/* Close Button */
+.close-button {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: 1em;
+	top: 1em;
+	overflow: hidden;
+	text-indent: 16px;
+	border: none;
+	z-index: 1001;
+	background: transparent;
+	color: transparent;
+}
+
+.close-button::before,
+.close-button::after {
+	content: '';
+	position: absolute;
+	width: 2px;
+	height: 100%;
+	top: 0;
+	left: 50%;
+	background: #95a5a6;
+}
+
+.close-button::before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.close-button::after {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+/* Menu */
+.menu-wrap {
+	position: fixed;
+	right: 0;
+  top: 0;
+	z-index: 1001;
+	width: 400px;
+	height: 100%;
+	font-size: 1.15em;
+	-webkit-transform: translate3d(400px,0,0);
+	transform: translate3d(400px,0,0);
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.menu {
+	background: #f1be48;
+	width: 100%;
+	height: 100%;
+	padding: 2em 1em;
+	margin-left:120px;
+  top: 0;
+  font-size: 1.4em;
+}
+
+.icon-list {
+  margin-top: 10em;
+	width: 200px;
+	position: absolute;
+	left: 3.5em;
+	z-index: 1000;
+  padding: 0;
+  list-style: none;
+}
+
+.icon-list a {
+	display: block;
+	margin: 0.8em;
+  margin-bottom: 1.5em;
+  position: relative;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-decoration: none;
+}
+
+.icon-list li a {
+  z-index: 1;
+  text-decoration: none;
+  outline: 0;
+}
+.icon-list li a:hover{
+  text-decoration: none;
+}
+.icon-list li a:after {
+  background-color: #fff;
+  content: "";
+  width: 0;
+  height: 4px;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  transition: width 500ms ease;
+}
+.icon-list li a:hover:after {
+	width: 100%;
+}
+
+.icon-list a i {
+	opacity: 0.5;
+}
+
+.icon-list a span {
+	margin-left: 10px;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 1px;
+	font-size: 0.75em;
+}
+
+/* Morph Shape */
+.morph-shape {
+	position: absolute;
+	width: 120px;
+	height: 100%;
+	top: 0;
+	-ms-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+	fill: #f1be48;
+	z-index: 1000;
+}
+
+/* Shown menu */
+.show-menu .menu-wrap {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+.show-menu .content-wrap {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+	-webkit-transform: translate3d(100px,0,0);
+	transform: translate3d(100px,0,0);
+}
+
+.show-menu .content::before {
+	opacity: 1;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}

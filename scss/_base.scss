@@ -1,0 +1,311 @@
+///////      Style     ///////
+
+*:focus {
+    outline: none;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    $color-placeholder;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    $color-placeholder;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    $color-placeholder;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    $color-placeholder;
+}
+:placeholder-shown { /* Standard */
+  color:    $color-placeholder;
+}
+
+::-webkit-input-placeholder {
+   color:    $color-placeholder;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color:    $color-placeholder;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color:    $color-placeholder;
+}
+
+:-ms-input-placeholder {
+   color:    $color-placeholder;
+}
+
+body{
+  background: url("assets/img/background.jpg");
+  background-size: cover;
+  font-size: 12px;
+}
+
+h1{
+  font-family: $title-font;
+}
+
+h2{
+  font-family: $title-font;
+}
+
+h3{
+  font-family: $title-font;
+}
+
+.noscroll{
+  overflow: hidden;
+}
+
+#fullpage .section{
+    overflow: hidden;
+    height: 100%;
+    position:relative;
+}
+
+.allcenter{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  margin: auto;
+}
+
+.centered{
+  float: none;
+  display: block;
+  margin: 0 auto;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.overlay-ab{
+  position: absolute;
+  width:  100%;
+  height: 100%;
+  background: rgba(0,0,0,.4);
+  z-index: 920;
+  transition: .1s linear;
+  display: none;
+
+}
+
+.brandandlogo{
+  z-index: 1000;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: 30px;
+
+  figure{
+    img{
+      width: 50px;
+    }
+  }
+
+  .lang{
+    float: right;
+    ul{
+      margin-top: 25px;
+      padding: 0;
+      color: $color-white;
+      font-weight: bold;
+      font-size: 1.1em;
+      li{
+        padding: 0;
+        list-style: none;
+        display: inline-block;
+        text-transform: uppercase;
+        a{
+          color: $color-white;
+          &:hover{
+            color: #c7c9c7 !important;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.home{
+  @include ableto-bg-color;
+  color: $color-white;
+  position: relative;
+
+  header{
+    overflow: hidden;
+  }
+
+  .hello{
+    height: 50%;
+    padding: 0;
+    @include centered;
+
+    h2{
+      text-align: center;
+      margin-bottom: 1.5em;
+    }
+
+    h1.main-title{
+      font-size: 6.83em;
+      span.inline{
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        span{
+          display: inline-block;
+          position: relative;
+          transform: rotate(0deg);
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+
+      }
+
+    }
+  }
+
+
+}
+
+.what{
+  background: $color-white;
+  color: $color-oscure;
+  .explain{
+
+    text-align: center;
+    height: 70%;
+    @include centered;
+
+    p{
+      font-size: 1.6em;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .video{
+      padding: 1em 0;
+    }
+  }
+}
+
+.app{
+  @include ableto-bg-color;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: $color-white;
+  font-size: 1.6em;
+  .app-content{
+
+    height: 60%;
+    @include centered;
+
+  }
+}
+
+.contact{
+  background: #f6f6f6;
+  text-align: center;
+  color: $color-oscure;
+
+  .contact-content{
+
+    height: 60%;
+    @include centered;
+  }
+
+  input[type="text"]{
+    margin-top: 1em;
+    border: 1px solid $color-oscure;
+
+  }
+  input[type="text"]::-webkit-input-placeholder {
+     color:    $color-placeholder;
+  }
+
+  input[type="email"]{
+    margin-top: 1em;
+    border: 1px solid $color-oscure;
+
+  }
+  input[type="email"]::-webkit-input-placeholder {
+     color:    $color-placeholder;
+  }
+
+  textarea{
+    margin-top: 1em;
+    border: 1px solid $color-oscure;
+  }
+
+  textarea::-webkit-input-placeholder {
+     color:    $color-placeholder;
+  }
+
+  .btn-send{
+    margin: 1em auto;
+  }
+
+  .social{
+    font-size: 3em;
+    padding-top: .5em;
+    div{
+      display: inline-block;
+      margin: 5px;
+      a{
+      border: 4px solid $color-blue;
+      padding: 5px;
+      color: $color-blue;
+      text-decoration: none;
+      display: inline-block;
+      -moz-border-radius: 100px;
+      -webkit-border-radius: 100px;
+      border-radius: 100px;
+      -moz-box-shadow: 0px 0px 2px #888;
+      -webkit-box-shadow: 0px 0px 2px #888;
+      box-shadow: 0px 0px 2px #888;
+      .twitter{
+        display: block;
+      }
+
+      .facebook{
+        display: block;
+        padding-left: 6.5px;
+        padding-right: 6.5px;
+      }
+
+
+      }
+    }
+  }
+
+
+}
+
+
+/* Custom Player */
+
+.player .controls .logo{
+  display: none !important;
+}
+
+.video-box{
+  max-width: 600px;
+  margin: 2em auto;
+
+}
+.vimeo {display:block; width: 100%; height: auto; max-width:638px; max-height:358px; margin:0 auto;}
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
+.embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
